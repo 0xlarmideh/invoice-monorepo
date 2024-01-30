@@ -45,10 +45,25 @@ export const generatePDF = async <T>(
   notes?: string
 ) => {
   // Create a browser instance
-  const browser = await puppeteer.launch({
-    headless: "new",
-    args: ["--no-sandbox"],
-  });
+  // const browser = await puppeteer.launch({
+  //   headless: "new",
+  //   args: ["--no-sandbox"],
+  // });
+
+   const browser = await puppeteer.launch({
+     args: [
+       "--disable-setuid-sandbox",
+       "--no-sandbox",
+       "--single-process",
+       "--no-zygote",
+     ],
+     headless: "new",
+     executablePath:
+       process.env.NODE_ENV === "production"
+         ? process.env.PUPPETEER_EXECUTABLE_PATH
+         : puppeteer.executablePath(),
+   });
+
 
   // Create a new page
   const page = await browser.newPage();
