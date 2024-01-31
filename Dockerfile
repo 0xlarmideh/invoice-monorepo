@@ -6,7 +6,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 WORKDIR /usr/src/app
 
 #give full access to  /usr/src/app directory
-RUN chown -R 777 /usr/src/app
+RUN chmod -R 777 /usr/src/app
 
 
 COPY package*.json ./
