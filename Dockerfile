@@ -18,6 +18,6 @@ RUN npx tsc
 # Switch back to non-root user
 USER pptruser
 
-EXPOSE 4000
+EXPOSE 5000
 
 CMD [ "npm", "start" ]
