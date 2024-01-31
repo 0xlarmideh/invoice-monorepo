@@ -7,10 +7,9 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 RUN npm ci
+
+# Add TypeScript as a development dependency
 COPY . .
-
-# Add TypeScript compiler and compile TS files
-RUN npm install -g typescript
-RUN tsc
-
+RUN npm install typescript --save-dev
+RUN npx tsc
 CMD [ "npm", "start" ]
