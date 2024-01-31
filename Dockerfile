@@ -5,15 +5,17 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 WORKDIR /usr/src/app
 
-#give full access to  /usr/src/app directory
-RUN chmod -R 777 /usr/src/app
-
+# Temporarily switch to root user
+USER root
 
 COPY package*.json ./
 RUN npm ci
 
-# Add TypeScript as a development dependency
 COPY . .
 RUN npm install typescript --save-dev
 RUN npx tsc
+
+# Switch back to non-root user
+USER pptruser
+
 CMD [ "npm", "start" ]
