@@ -8,4 +8,9 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+
+# Add TypeScript compiler and compile TS files
+RUN npm install -g typescript
+RUN tsc
+
 CMD [ "npm", "start" ]
