@@ -5,10 +5,8 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 WORKDIR /usr/src/app
 
-# Change ownership of the /usr/src/app directory
-USER root
-RUN chown -R pptruser:pptruser /usr/src/app
-USER pptruser
+#give full access to  /usr/src/app directory
+RUN chown -R 777 /usr/src/app
 
 
 COPY package*.json ./
