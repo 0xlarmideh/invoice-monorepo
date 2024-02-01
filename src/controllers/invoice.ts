@@ -20,6 +20,10 @@ export const createInvoice: RequestHandler<
   try {
     const body = req.body;
 
+    if (!body) {
+      throw createHttpError(400, "Payload is missing");
+    }
+
     // Use this to get invoice style
     const chosenStyle =
       handleBarStyle[body?.invoiceStyle as keyof typeof INVOICESTYLES];
