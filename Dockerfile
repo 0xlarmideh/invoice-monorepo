@@ -21,9 +21,9 @@ EXPOSE 5000
 
 RUN npm run build
 
+RUN npm run copy-files
+
 # Switch back to non-root user
 USER pptruser
-
-RUN npm run copy-files
 
 CMD [ "npm", "start" ]
