@@ -52,12 +52,14 @@ export const generatePDF = async <T>(
 
    const browser = await puppeteer.launch({
      args: [
+       "--disable-gpu",
+       "--disable-dev-shm-usage",
        "--disable-setuid-sandbox",
+       "--no-first-run",
        "--no-sandbox",
-       "--single-process",
        "--no-zygote",
+       "--single-process",
      ],
-     headless: "new",
      executablePath:
        process.env.NODE_ENV === "production"
          ? process.env.PUPPETEER_EXECUTABLE_PATH
