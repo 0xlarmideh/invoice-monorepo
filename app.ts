@@ -9,7 +9,6 @@ import createHttpError, { isHttpError } from "http-errors";
 const app = express();
 
 export const PORT = env.PORT;
-export const API_URL = env.API_URL;
 
 app.listen(PORT, () => {
   console.log("Server running on " + 5000);

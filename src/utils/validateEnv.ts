@@ -1,6 +1,5 @@
-import { cleanEnv, port, str} from "envalid"
+import { cleanEnv, port} from "envalid"
 
 export default cleanEnv(process.env, {
-  API_URL: str(),
   PORT: port(),
 })
