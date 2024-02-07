@@ -1,29 +1,26 @@
-FROM ghcr.io/puppeteer/puppeteer:21.7.0
+# Use official node image as the base image
+FROM node:21-alpine
 
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+# #add build args
+
+ENV PORT=5555
 
 # set working directory
 WORKDIR /app
 
-# Temporarily switch to root user
-USER root
-
+# copy dependacies only
 COPY package*.json /app/
 
-RUN npm install 
+# Install all the dependencies
+RUN npm install
 
 # add app
 COPY ./ /app/
 
-
-EXPOSE 5000
+EXPOSE 5555
 
 RUN npm run build
 
 RUN npm run copy-files
 
-# Switch back to non-root user
-USER pptruser
-
-CMD [ "npm", "start" ]
+CMD ["npm","run","start"]
