@@ -4,7 +4,6 @@ import path from "path";
 import hbs from "handlebars";
 import dayjs from "dayjs";
 import "dotenv/config";
-import { API_URL } from "../../app";
 
 hbs.registerHelper("dateFormat", function (value, format) {
   return dayjs(value).format(format);
@@ -30,10 +29,10 @@ const compile = async <T>(templateName: string, data: T) => {
   const html = fs.readFileSync(filePath, "utf-8");
   return hbs.compile(html)({
     ...data,
-    tailwindcss: `${API_URL}/styles/styles.css`,
-    bluesvgBiggest: `${API_URL}/assets/bluesvg-biggest.svg`,
-    bluesvgBig: `${API_URL}/assets/bluesvg-big.svg`,
-    bluesvgSmall: `${API_URL}/assets/bluesvg-small.svg`,
+    tailwindcss: `http://localhost:${process.env.PORT}/styles/styles.css`,
+    bluesvgBiggest: `http://localhost:${process.env.PORT}/assets/bluesvg-biggest.svg`,
+    bluesvgBig: `http://localhost:${process.env.PORT}/assets/bluesvg-big.svg`,
+    bluesvgSmall: `http://localhost:${process.env.PORT}/assets/bluesvg-small.svg`,
   });
 };
 
