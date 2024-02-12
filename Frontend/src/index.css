@@ -1,0 +1,37 @@
+@import url('https://fonts.cdnfonts.com/css/space-grotesk');
+@import url('https://db.onlinewebfonts.com/c/55d433372d270829c51e2577a78ef12d?family=Monument+Extended+Bold');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  font-family: sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  /* font-weight: 400; */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 2rem auto 0rem auto;
+  min-width: 320px;
+  /* font-family: sans-serif; */
+  /* min-height: 80vh; */
+}
+
+.text-black {
+  color: black;
+}
+
+
+.invoice-items {
+  margin: 2rem 0;
+}
+
+.text-headings {
+  font-family: 'Space Grotesk', sans-serif
+}
