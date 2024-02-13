@@ -29,10 +29,10 @@ const compile = async <T>(templateName: string, data: T) => {
   const html = fs.readFileSync(filePath, "utf-8");
   return hbs.compile(html)({
     ...data,
-    tailwindcss: `http://localhost:${process.env.PORT}/styles/styles.css`,
-    bluesvgBiggest: `http://localhost:${process.env.PORT}/assets/bluesvg-biggest.svg`,
-    bluesvgBig: `http://localhost:${process.env.PORT}/assets/bluesvg-big.svg`,
-    bluesvgSmall: `http://localhost:${process.env.PORT}/assets/bluesvg-small.svg`,
+    tailwindcss: `http://localhost:5000/styles/styles.css`,
+    bluesvgBiggest: `http://localhost:5000/assets/bluesvg-biggest.svg`,
+    bluesvgBig: `http://localhost:5000/assets/bluesvg-big.svg`,
+    bluesvgSmall: `http://localhost:5000/assets/bluesvg-small.svg`,
   });
 };
 
