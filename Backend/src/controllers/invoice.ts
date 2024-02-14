@@ -40,15 +40,10 @@ export const createInvoice: RequestHandler<
      );
 
      // Set response headers
-    //  res.setHeader("Content-Type", "application/pdf");
      res.setHeader("Content-Disposition", "attachment; filename=invoice.pdf");
 
      // Send the PDF content as response
      res.send(Buffer.from(pdfContent, "base64"));
-
-    res
-      .status(200)
-      .json({ message: "Invoice created successfully" });
   } catch (error) {
     next(error);
   }
