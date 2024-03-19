@@ -1,0 +1,24 @@
+[module "8bcd64f4-4ecd-3dc3-b154-64b6a64cbbdd"]
+	conflict = request-pull
+	path = Backend
+	pull = merge subtree
+	pull = squash never
+	ref = if refs/heads/main sync refs/heads/main
+	url = agnostic://gh/746280381
+[module "5b0a1176-6a1d-3bf4-9be9-67afbae7ac22"]
+	conflict = request-pull
+	path = Frontend
+	pull = merge subtree
+	pull = squash never
+	ref = if refs/heads/main sync refs/heads/main
+	url = agnostic://gh/614054930
+[map "3742543b-7412-3e55-b330-d68254cf1eed"]
+	object = f43a6edad47631c77825336ded7f2afa6115e5cb
+	path = Backend
+	stage = sync
+	type = extract module
+[map "2ea244e2-77b6-30be-bfef-fd0a196c5478"]
+	object = f4f60596413f7e6d90b6726407b90401c569de3b
+	path = Frontend
+	stage = sync
+	type = extract module
